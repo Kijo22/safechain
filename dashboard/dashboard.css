@@ -1,0 +1,474 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fb;
+  display: flex;
+}
+
+img{
+    margin-bottom: 50px;
+    margin-top: 5px;
+    filter: drop-shadow(0 4px 20px blue);
+}
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 80px;
+  background-color: #16a34a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  color: #fff;
+  transition: width 0.3s;
+  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar:hover {
+  width: 220px;
+}
+.sidebar .logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.sidebar nav a i {
+  font-size: 20px;
+  min-width: 25px;
+  text-align: center;
+}
+
+.sidebar nav a span {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* SHOW LABEL ON HOVER */
+.sidebar:hover nav a span {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ACTIVE & HOVER STATES */
+.sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+ body {
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-top: auto;
+            border: 2px solid white;
+            overflow: hidden;
+            background-color: #ccc; /* Placeholder background */
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- MAIN CONTENT LAYOUT --- */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .header-top-left {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Main Grid for Incident Details */
+        .incident-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Two main columns */
+            gap: 25px;
+            flex-grow: 1; /* Allow grid to grow */
+        }
+
+        .incident-grid-left {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .incident-grid-right {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* --- CARD STYLING --- */
+        .card {
+            background-color: var(--color-card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0; /* Important for flex-grow in parent */
+        }
+        
+        .card-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- MAP CARD --- */
+        .map-card {
+            flex-grow: 1; /* Map takes available space */
+            min-height: 350px; /* Minimum height for map */
+            overflow: hidden; /* Hide map image overflow */
+            position: relative;
+        }
+
+        .map-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px; /* Inner border for map image */
+            filter: grayscale(10%); /* Slight grayscale for map */
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .map-control-btn {
+            background-color: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            color: #555;
+            font-size: 0.9em;
+        }
+        
+        .map-active-incident {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #e04a4a;
+            display: flex;
+            align-items: center;
+        }
+        
+        .map-active-incident i {
+            margin-right: 8px;
+            color: #e04a4a;
+        }
+        
+        /* --- CHART CARD --- */
+        .chart-card {
+            flex-grow: 1;
+        }
+        
+        .chart-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+        
+        .legend-color.fire { background-color: #f75c6c; }
+        .legend-color.flood { background-color: #5c8cf7; }
+        .legend-color.crime { background-color: #f7d15c; }
+        
+        .chart-dropdown {
+            padding: 6px 10px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background-color: white;
+            font-size: 0.9em;
+            color: #555;
+            margin-left: auto;
+        }
+        
+        /* Chart Area Placeholder */
+        .chart-area {
+            position: relative;
+            width: 100%;
+            height: 250px; /* Fixed height for the chart */
+            border: 1px solid #e9e9e9;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end; /* Align lines to bottom */
+            justify-content: space-around;
+            padding: 20px;
+            box-sizing: border-box;
+            background: linear-gradient(to top, #fcfcfc 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .chart-grid-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #eee;
+        }
+        .chart-grid-line.y-0 { bottom: 20px; } /* Adjust for padding */
+        .chart-grid-line.y-25 { bottom: calc(20px + (250px - 40px) * 0.25); }
+        .chart-grid-line.y-50 { bottom: calc(20px + (250px - 40px) * 0.5); }
+        .chart-grid-line.y-75 { bottom: calc(20px + (250px - 40px) * 0.75); }
+        .chart-grid-line.y-100 { top: 20px; } /* Adjust for padding */
+
+        .chart-y-axis-label {
+            position: absolute;
+            left: 5px;
+            font-size: 0.75em;
+            color: #999;
+        }
+        .chart-y-axis-label.y-0 { bottom: 10px; }
+        .chart-y-axis-label.y-25 { bottom: calc(20px + (250px - 40px) * 0.25 - 10px); }
+        .chart-y-axis-label.y-50 { bottom: calc(20px + (250px - 40px) * 0.5 - 10px); }
+        .chart-y-axis-label.y-75 { bottom: calc(20px + (250px - 40px) * 0.75 - 10px); }
+        .chart-y-axis-label.y-100 { top: 10px; }
+
+
+        .chart-data-line {
+            position: absolute;
+            bottom: 20px; /* Align to bottom padding */
+            left: 20px; /* Align to left padding */
+            width: calc(100% - 40px); /* Adjust for padding */
+            height: calc(100% - 40px); /* Adjust for padding */
+            /* Using SVG for actual lines would be better, this is a visual approximation */
+            /* Will be dynamically generated */
+            pointer-events: none; /* Allow clicks through */
+        }
+        
+        .chart-x-axis-labels {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-size: 0.75em;
+            color: #777;
+            transform: translateY(15px); /* Position below chart area */
+        }
+        
+        .chart-x-axis-labels span {
+            flex: 1;
+            text-align: center;
+            min-width: 30px; /* Prevent squashing on small screens */
+        }
+
+
+        /* --- EMERGENCY DETAILS CARD --- */
+        .emergency-details-card, .user-info-card, .location-details-card, .timeline-card {
+            flex-shrink: 0; /* Prevent from shrinking too much */
+        }
+
+        .emergency-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--color-border);
+        }
+        .emergency-item:last-child { border-bottom: none; }
+
+        .emergency-item i {
+            font-size: 1.1em;
+            margin-right: 12px;
+            color: #e04a4a;
+        }
+        
+        .emergency-item .label {
+            font-size: 0.9em;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .emergency-item .value {
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .status-Fire { background-color: #fee2e2; color: #dc2626; }
+        .status-Flood { background-color: #eff6ff; color: #2563eb; }
+        .status-Crime { background-color: #f3e8ff; color: #7c3aed; }
+        .status-Responding { background-color: #e0f2fe; color: #0284c7; } /* Blue */
+        .status-Resolved { background-color: #d1fae5; color: #059669; } /* Green */
+        .status-Pending { background-color: #fef3c7; color: #d97706; } /* Yellow */
+
+
+        /* --- USER & LOCATION DETAILS --- */
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--color-border);
+            font-size: 0.9em;
+        }
+        .detail-item:last-child { border-bottom: none; }
+
+        .detail-item .label {
+            color: #777;
+        }
+        .detail-item .value {
+            font-weight: 500;
+        }
+
+        /* --- ACTIVITY TIMELINE --- */
+        .timeline-card {
+            min-height: 250px;
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .timeline-time {
+            width: 70px;
+            flex-shrink: 0;
+            font-size: 0.85em;
+            color: #999;
+            font-weight: 500;
+        }
+        .timeline-content {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-more-btn {
+            background-color: #f0f4f7;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: var(--color-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .timeline-more-btn:hover {
+            background-color: #e5e9ec;
+        }
+        .my-button:hover {
+  background-color: #2563eb; /* A darker shade when hovered */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px); /* A subtle lift */
+}

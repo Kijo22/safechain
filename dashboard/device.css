@@ -1,0 +1,421 @@
+/* General Styling (from previous response, ensure this is included) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-green: #1F9C6C;
+    --dark-grey: #333;
+    --medium-grey: #666;
+    --light-grey: #E0E0E0;
+    --bg-light: #F8F9FA;
+    --bg-dark: #FFFFFF;
+    --border-color: #EEE;
+    --text-dark: #212529;
+    --text-medium: #495057;
+    --text-light: #ADB5BD;
+    --purple: #9B59B6;
+    --green: #2ECC71;
+    --orange: #E67E22;
+    --red: #E74C3C;
+    --blue: #3498DB; /* Added for active devices */
+    --yellow: #F1C40F; /* Added for low battery */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+img{
+    margin-bottom: 50px;
+    margin-top: 5px;
+    filter: drop-shadow(0 4px 20px blue);
+
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 80px;
+  background-color: #16a34a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  color: #fff;
+  transition: width 0.3s;
+  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar:hover {
+  width: 220px;
+}
+.sidebar .logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.sidebar nav a i {
+  font-size: 20px;
+  min-width: 25px;
+  text-align: center;
+}
+
+.sidebar nav a span {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* SHOW LABEL ON HOVER */
+.sidebar:hover nav a span {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ACTIVE & HOVER STATES */
+.sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content Styling (from previous response, ensure this is included) */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--bg-light);
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.header p {
+    font-size: 14px;
+    color: var(--text-medium);
+}
+
+/* Dashboard Stats (Modified for Device Management) */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted min-width */
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: var(--bg-dark);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative; /* For the subtle background shape */
+    overflow: hidden; /* Hide overflowing background shape */
+}
+
+.stat-card .icon-bg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    position: relative; /* Ensure icon is above the ::before pseudo-element */
+    z-index: 1;
+}
+
+.stat-card .icon-bg.bg-green { background-color: rgba(46, 204, 113, 0.15); }
+.stat-card .icon-bg.bg-blue { background-color: rgba(52, 152, 219, 0.15); }
+.stat-card .icon-bg.bg-red { background-color: rgba(231, 76, 60, 0.15); }
+.stat-card .icon-bg.bg-yellow { background-color: rgba(241, 196, 15, 0.15); }
+
+
+.stat-card .icon-bg i.material-icons {
+    font-size: 24px;
+}
+
+.stat-card .icon-bg.bg-green i { color: var(--green); }
+.stat-card .icon-bg.bg-blue i { color: var(--blue); }
+.stat-card .icon-bg.bg-red i { color: var(--red); }
+.stat-card .icon-bg.bg-yellow i { color: var(--yellow); }
+
+.stat-card .stat-info {
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card .stat-info h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.stat-card .stat-info p {
+    font-size: 13px;
+    color: var(--text-medium);
+}
+
+/* Device List Section */
+.device-list-section {
+    padding: 0; /* No padding directly on this section, cards have their own */
+}
+
+.search-box.device-search {
+    margin-bottom: 30px;
+    max-width: 400px; /* Adjust search bar width */
+}
+
+.device-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.device-card {
+    background-color: var(--bg-dark);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.device-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.device-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.device-icon-bg {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px; /* Slightly rounded rectangle */
+    background-color: rgba(46, 204, 113, 0.15); /* Greenish background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.device-icon-bg i.material-icons {
+    font-size: 18px;
+    color: var(--green);
+}
+
+.device-id {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.device-owner {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-medium);
+    font-size: 13px;
+}
+
+.device-owner i.material-icons {
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.device-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-medium);
+}
+
+.detail-item .user-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.detail-item i.material-icons {
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+.detail-item .battery-level {
+    font-weight: 600;
+    color: var(--primary-green); /* Or a specific battery color if desired */
+}
+
+.device-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    flex: 1;
+    background-color: var(--bg-light);
+    color: var(--text-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.view-btn i.material-icons {
+    color: var(--blue); /* Icon color for view */
+    font-size: 18px;
+}
+
+.deactivate-btn i.material-icons {
+    color: var(--red); /* Icon color for deactivate */
+    font-size: 18px;
+}
+
+/* Responsive Adjustments (ensure previous ones are still in effect, add/modify as needed) */
+@media (max-width: 992px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .device-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 15px 0;
+    }
+    .sidebar .nav-menu i.material-icons {
+        font-size: 24px;
+    }
+    .main-content {
+        padding: 20px;
+    }
+    .header h1 {
+        font-size: 24px;
+    }
+    .header p {
+        font-size: 13px;
+    }
+    .stat-card .stat-info h2 {
+        font-size: 20px;
+    }
+    .stat-card .stat-info p {
+        font-size: 12px;
+    }
+    .search-box.device-search {
+        max-width: none;
+    }
+    .device-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+    .device-card {
+        padding: 15px;
+    }
+    .device-id {
+        font-size: 14px;
+    }
+    .device-owner {
+        font-size: 12px;
+    }
+    .detail-item {
+        font-size: 12px;
+    }
+    .action-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar .logo-circle {
+        width: 35px;
+        height: 35px;
+    }
+    .sidebar .user-profile img {
+        width: 35px;
+        height: 35px;
+    }
+    .device-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .device-owner {
+        margin-left: 45px; /* Align with device icon */
+    }
+}

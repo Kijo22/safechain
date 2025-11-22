@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Reports</title>
+    <link rel="stylesheet" href="statistic.css">
+    <link rel="stylesheet" href="resident.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+        <img src="image 1.png" alt="Girl in a jacket" width="60" height="60">
+        <nav>
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-chart-line"></i><span>Dashboard</span>
+            </a>
+            <!-- Incidents (Current Page) -->
+            <a href="incidentlog.html">
+                <i class="fas fa-exclamation-triangle"></i><span>Incident log</span>
+            </a>
+            <!-- Residents -->
+            <a href="resident.html">
+                <i class="fas fa-users"></i><span>Residents</span>
+            </a>
+            <!-- Devices -->
+            <a href="device.html">
+                <i class="fas fa-mobile-alt"></i><span>Devices</span>
+            </a>
+            <!-- Reports -->
+            <a href="statistic.html">
+                <i class="fas fa-chart-bar"></i><span>Statistic</span>
+            </a>
+            <!-- Trash -->
+            <a href="trash.html">
+                <i class="fa fa-trash-o"></i><span>Trash</span>
+            </a>
+        </nav>
+    </div>
+
+        <main class="main-content">
+            <header class="header analytics-header">
+                <div>
+                    <h1>Analytics & Reports</h1>
+                    <p>Track incidents, response times, and system performance</p>
+                </div>
+                <div class="header-actions">
+                    <button class="filter-btn"><i class="material-icons">filter_list</i> Filters</button>
+                    <button class="export-report-btn"><i class="material-icons">download</i> Export Report</button>
+                </div>
+            </header>
+
+            <section class="dashboard-stats analytics-stats">
+                <div class="stat-card">
+                    <div class="icon-bg bg-green"><i class="material-icons">warning</i></div>
+                    <div class="stat-info">
+                        <h2>247</h2>
+                        <p>Total Incidents (30 days)</p>
+                    </div>
+                    <span class="trend up">+ 12%</span>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-bg bg-blue"><i class="material-icons">timer</i></div>
+                    <div class="stat-info">
+                        <h2>2.4 min</h2>
+                        <p>Avg Response Time</p>
+                    </div>
+                    <span class="trend up">+ 12%</span>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-bg bg-primary-green"><i class="material-icons">check_circle_outline</i></div>
+                    <div class="stat-info">
+                        <h2>98.2%</h2>
+                        <p>Resolution Rate</p>
+                    </div>
+                    <span class="trend up">+ 12%</span>
+                </div>
+            </section>
+
+            <section class="analytics-charts-grid">
+                <div class="chart-card large-card">
+                    <h3>Incident Trends</h3>
+                    <p class="chart-subtitle">Daily reports over 30 days</p>
+                    <div class="chart-placeholder line-chart">
+                        <!-- Simulated Line Chart --><div class="y-axis">
+                            <span>100</span>
+                            <span>80</span>
+                            <span>60</span>
+                            <span>40</span>
+                            <span>20</span>
+                            <span>0</span>
+                        </div>
+                        <div class="chart-area">
+                            <div class="line-segment" style="left: 0; width: 25%;"></div>
+                            <div class="line-segment" style="left: 25%; width: 25%;"></div>
+                            <div class="line-segment" style="left: 50%; width: 25%;"></div>
+                            <div class="line-segment" style="left: 75%; width: 25%;"></div>
+                            <div class="line-fill"></div>
+                            <div class="x-axis">
+                                <span>Week 1</span>
+                                <span>Week 2</span>
+                                <span>Week 3</span>
+                                <span>Week 4</span>
+                            </div>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="legend-color legend-blue"></span> Incidents</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Incident Types</h3>
+                    <p class="chart-subtitle">Distribution by category</p>
+                    <div class="chart-placeholder donut-chart">
+                        <!-- Simulated Donut Chart --><div class="donut-circle"></div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-color legend-blue"></span> Fire</span>
+                            <span class="legend-item"><span class="legend-color legend-red"></span> Flood</span>
+                            <span class="legend-item"><span class="legend-color legend-orange"></span> Crime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Response Time</h3>
+                    <p class="chart-subtitle">Time to respond</p>
+                    <div class="chart-placeholder bar-chart small-bar-chart">
+                         <!-- Simulated Bar Chart --><div class="y-axis">
+                            <span>100</span>
+                            <span>75</span>
+                            <span>50</span>
+                            <span>25</span>
+                            <span>0</span>
+                        </div>
+                        <div class="bars-container">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 45%;"></div>
+                                <span class="bar-label">0-2 mins</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 60%;"></div>
+                                <span class="bar-label">2-4 mins</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 80%;"></div>
+                                <span class="bar-label">4-6 mins</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 50%;"></div>
+                                <span class="bar-label">6+ mins</span>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-color legend-blue"></span> Incident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Peak Hours</h3>
+                    <p class="chart-subtitle">Incidents by hour</p>
+                    <div class="chart-placeholder bar-chart small-bar-chart">
+                         <!-- Simulated Bar Chart --><div class="y-axis">
+                            <span>50</span>
+                            <span>25</span>
+                            <span>0</span>
+                        </div>
+                        <div class="bars-container">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 60%;"></div>
+                                <span class="bar-label">6AM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 30%;"></div>
+                                <span class="bar-label">9AM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 75%;"></div>
+                                <span class="bar-label">12PM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 90%;"></div>
+                                <span class="bar-label">3PM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 85%;"></div>
+                                <span class="bar-label">6PM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 50%;"></div>
+                                <span class="bar-label">9PM</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 65%;"></div>
+                                <span class="bar-label">12AM</span>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-color legend-blue"></span> Incidents</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

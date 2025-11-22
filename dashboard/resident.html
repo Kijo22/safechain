@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Residents</title>
+    <link rel="stylesheet" href="resident.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+       <img src="image 1.png" alt="Girl in a jacket" width="60" height="60">
+        <nav>
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-chart-line"></i><span>Dashboard</span>
+            </a>
+            <!-- Incidents (Current Page) -->
+            <a href="incidentlog.html">
+                <i class="fas fa-exclamation-triangle"></i><span>Incident log</span>
+            </a>
+            <!-- Residents -->
+            <a href="resident.html">
+                <i class="fas fa-users"></i><span>Residents</span>
+            </a>
+            <!-- Devices -->
+            <a href="device.html">
+                <i class="fas fa-mobile-alt"></i><span>Devices</span>
+            </a>
+            <!-- Reports -->
+            <a href="statistic.html">
+                <i class="fas fa-chart-bar"></i><span>Statistic</span>
+            </a>
+            <!-- Trash -->
+            <a href="trash.html">
+                <i class="fa fa-trash-o"></i><span>Trash</span>
+            </a>
+        </nav>
+    </div>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Manage Residents</h1>
+                <p>Manage Registered barangay residents</p>
+            </header>
+
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="icon-bg bg-purple"><i class="material-icons">person</i></div>
+                    <div class="stat-info">
+                        <h2>11 <span class="trend up">▲</span></h2>
+                        <p>Total Residents</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-bg bg-green"><i class="material-icons">calendar_today</i></div>
+                    <div class="stat-info">
+                        <h2>2 <span class="trend up">▲</span></h2>
+                        <p>Registered This Month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-bg bg-orange"><i class="material-icons">history</i></div>
+                    <div class="stat-info">
+                        <h2>2h</h2>
+                        <p>Last Registration</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="residents-table-section">
+                <div class="table-controls">
+                    <div class="search-box">
+                        <i class="material-icons">search</i>
+                        <input type="text" placeholder="Search residents...">
+                    </div>
+                    <div class="sort-by">
+                        <span>Sort By</span>
+                        <select>
+                            <option>Newest First</option>
+                            <option>Oldest First</option>
+                            <option>A-Z</option>
+                            <option>Z-A</option>
+                        </select>
+                    </div>
+                    <button class="export-btn">
+                        <i class="material-icons">download</i> Export
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>RESIDENT NAME</th>
+                                <th>USER ID</th>
+                                <th>HOUSEHOLD/ ADDRESS</th>
+                                <th>CONTACT NUMBER</th>
+                                <th>DEVICE ID</th>
+                                <th>REGISTERED DATE</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Row --><tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar-name">
+                                        <div class="avatar-placeholder">MS</div>
+                                        <span>Maria Santos</span>
+                                    </div>
+                                </td>
+                                <td>USR-2025-009</td>
+                                <td>SAMPLE ADDRESS</td>
+                                <td>+63 910 123 4567</td>
+                                <td>SC-NC-009</td>
+                                <td>SEPTEMBER 15, 2024</td>
+                                <td>
+                                    <div class="actions">
+                                        <i class="material-icons">visibility</i>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn"><i class="material-icons">chevron_left</i></button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn">10</button>
+                    <button class="pagination-btn"><i class="material-icons">chevron_right</i></button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

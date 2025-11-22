@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash - Access and restore removed items</title>
+    <link rel="stylesheet" href="trash.css">
+    <link rel="stylesheet" href="resident.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+        <img src="image 1.png" alt="Girl in a jacket" width="60" height="60">
+        <nav>
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-chart-line"></i><span>Dashboard</span>
+            </a>
+            <!-- Incidents (Current Page) -->
+            <a href="incidentlog.html">
+                <i class="fas fa-exclamation-triangle"></i><span>Incident log</span>
+            </a>
+            <!-- Residents -->
+            <a href="resident.html">
+                <i class="fas fa-users"></i><span>Residents</span>
+            </a>
+            <!-- Devices -->
+            <a href="device.html">
+                <i class="fas fa-mobile-alt"></i><span>Devices</span>
+            </a>
+            <!-- Reports -->
+            <a href="statistic.html">
+                <i class="fas fa-chart-bar"></i><span>Statistic</span>
+            </a>
+            <!-- Trash -->
+            <a href="trash.html">
+                <i class="fa fa-trash-o"></i><span>Trash</span>
+            </a>
+        </nav>
+    </div>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Trash</h1>
+                <p>Access and restore removed items.</p>
+            </header>
+
+            <section class="trash-navigation">
+                <div class="nav-tabs">
+                    <button class="nav-tab active">All Items <span class="count">9</span></button>
+                    <button class="nav-tab">Incidents <span class="count">2</span></button>
+                    <button class="nav-tab">Users <span class="count">2</span></button>
+                    <button class="nav-tab">Devices <span class="count">5</span></button>
+                </div>
+            </section>
+
+            <section class="alert-banner">
+                <i class="material-icons">info_outline</i>
+                Items in trash will be permanently deleted after 30 days. Restore items to move them back to active.
+            </section>
+
+            <section class="trash-controls">
+                <div class="search-box trash-search">
+                    <i class="material-icons">search</i>
+                    <input type="text" placeholder="Search incidents...">
+                </div>
+                <div class="filter-dropdown">
+                    <select>
+                        <option>All Type</option>
+                        <option>Incidents</option>
+                        <option>Users</option>
+                        <option>Devices</option>
+                    </select>
+                </div>
+                <button class="restore-all-btn"><i class="material-icons">restore</i> Restore All</button>
+                <button class="empty-trash-btn"><i class="material-icons">delete_forever</i> Empty Trash</button>
+            </section>
+
+            <section class="deleted-items-list">
+                <div class="list-header">
+                    <input type="checkbox" id="selectAll">
+                    <label for="selectAll">Deleted Items</label>
+                    <span>Select All</span>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item1">
+                    <label for="item1" class="item-content">
+                        <span class="item-icon bg-red"><i class="material-icons">warning</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Fire Emergency \#EMG-2024-1047</span>
+                            <div class="item-meta">
+                                <span class="item-type incident">INCIDENT</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 3 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item2">
+                    <label for="item2" class="item-content">
+                        <span class="item-icon bg-red"><i class="material-icons">warning</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Flood Alert \#EMG-2024-1048</span>
+                            <div class="item-meta">
+                                <span class="item-type incident">INCIDENT</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 5 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item3">
+                    <label for="item3" class="item-content">
+                        <span class="item-icon bg-blue"><i class="material-icons">person</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Pedro Martinez</span>
+                            <div class="item-meta">
+                                <span class="item-type user">USER</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 2 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item4">
+                    <label for="item4" class="item-content">
+                        <span class="item-icon bg-green"><i class="material-icons">devices_other</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Keychain Device \#KC-00142</span>
+                            <div class="item-meta">
+                                <span class="item-type device">DEVICE</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 2 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item5">
+                    <label for="item5" class="item-content">
+                        <span class="item-icon bg-blue"><i class="material-icons">person</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Maria Santos</span>
+                            <div class="item-meta">
+                                <span class="item-type user">USER</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 2 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="item-card">
+                    <input type="checkbox" id="item6">
+                    <label for="item6" class="item-content">
+                        <span class="item-icon bg-green"><i class="material-icons">devices_other</i></span>
+                        <div class="item-details">
+                            <span class="item-title">Keychain Device \#KC-00143</span>
+                            <div class="item-meta">
+                                <span class="item-type device">DEVICE</span>
+                                <span class="item-time"><i class="material-icons">schedule</i> 2 hrs ago</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

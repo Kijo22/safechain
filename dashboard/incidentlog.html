@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Incident Log — Exact UI</title>
+  <link rel="stylesheet" href="incidentlog.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+  <div class="app">
+    <div class="sidebar">
+        <img src="image 1.png" alt="Girl in a jacket" width="60" height="60">
+        <nav>
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-chart-line"></i><span>Dashboard</span>
+            </a>
+            <!-- Incidents (Current Page) -->
+            <a href="incidentlog.html">
+                <i class="fas fa-exclamation-triangle"></i><span>Incident log</span>
+            </a>
+            <!-- Residents -->
+            <a href="resident.html">
+                <i class="fas fa-users"></i><span>Residents</span>
+            </a>
+            <!-- Devices -->
+            <a href="device.html">
+                <i class="fas fa-mobile-alt"></i><span>Devices</span>
+            </a>
+            <!-- Reports -->
+            <a href="statistic.html">
+                <i class="fas fa-chart-bar"></i><span>Statistic</span>
+            </a>
+            <!-- Trash -->
+            <a href="trash.html">
+                <i class="fa fa-trash-o"></i><span>Trash</span>
+            </a>
+        </nav>
+    </div>
+    <!-- Main content -->
+    <main class="main" role="main">
+      <header class="page-header">
+        <div class="title-block">
+          <h1>Incident Log</h1>
+          <p>Comprehensive emergency incident tracking and management</p>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn-refresh" id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh</button>
+        </div>
+      </header>
+
+      <!-- Stats row -->
+      <section class="stats" aria-label="Statistics">
+        <div class="stat-card">
+          <div class="stat-left">
+            <div class="bubble" style="background:linear-gradient(180deg,#ffdede,#ffdede)"><i class="fas fa-exclamation-circle" style="color:#ef5350"></i></div>
+            <div class="stat-text"><h3 id="totalCount">0</h3><p>Total Incidents</p></div>
+          </div>
+          <div style="color:var(--muted); font-size:13px">↑ 12% from last month</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-left">
+            <div class="bubble" style="background:linear-gradient(180deg,#d9f2ff,#d9f2ff)"><i class="fas fa-bolt" style="color:#3b82f6"></i></div>
+            <div class="stat-text"><h3 id="respondingCount">0</h3><p>Active Incidents</p></div>
+          </div>
+          <div style="color:var(--muted); font-size:13px">Currently responding</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-left">
+            <div class="bubble" style="background:linear-gradient(180deg,#e7ffef,#e7ffef)"><i class="fas fa-check-circle" style="color:#10b981"></i></div>
+            <div class="stat-text"><h3 id="resolvedCount">0</h3><p>Resolved</p></div>
+          </div>
+          <div style="color:var(--muted); font-size:13px">↑ 88% resolution rate</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-left">
+            <div class="bubble" style="background:linear-gradient(180deg,#fff6dc,#fff6dc)"><i class="fas fa-hourglass-half" style="color:#f6c244"></i></div>
+            <div class="stat-text"><h3 id="pendingCount">0</h3><p>Pending</p></div>
+          </div>
+          <div style="color:var(--muted); font-size:13px">Awaiting response</div>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <section class="filters">
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input id="searchInput" placeholder="Search incidents..." />
+        </div>
+
+        <div class="filter-controls" aria-label="Filters">
+          <select class="select" id="typeFilter">
+            <option value="">All Types</option>
+            <option value="Fire">Fire</option>
+            <option value="Flood">Flood</option>
+            <option value="Crime">Crime</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <select class="select" id="statusFilter">
+            <option value="">All Status</option>
+            <option value="Responding">Responding</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Pending">Pending</option>
+          </select>
+
+          <input class="date" id="dateFilter" type="date" />
+
+          <button class="clear-filters" id="clearFilters">Clear Filters</button>
+        </div>
+
+      </section>
+
+      <!-- Table -->
+      <section class="table-wrap" aria-label="Incidents table">
+        <div class="table-top">
+          <h2>All Incidents (<span id="tableTotal">0</span>)</h2>
+          <div class="meta">Showing <span id="showingRange">0</span> results</div>
+        </div>
+
+        <div style="overflow:auto">
+          <table class="incidents" aria-describedby="All incidents">
+            <thead>
+              <tr>
+                <th>Incident ID</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Reporter</th>
+                <th>Status</th>
+                <th>Date & Time</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="incidentTable"></tbody>
+          </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal Add/Edit -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Add New Incident</h3>
+
+      <form id="incidentForm">
+        <input type="hidden" id="editIndex" />
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="incType">Type</label>
+            <select id="incType">
+              <option>Fire</option>
+              <option>Flood</option>
+              <option>Crime</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="incStatus">Status</label>
+            <select id="incStatus">
+              <option>Responding</option>
+              <option>Resolved</option>
+              <option>Pending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="incLocation">Location</label>
+          <input type="text" id="incLocation" placeholder="e.g. 63 San Nicasio St., Villaflor" required />
+        </div>
+
+        <div class="field">
+          <label for="incReporter">Reporter</label>
+          <input type="text" id="incReporter" placeholder="Reporter name" required />
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="incDate">Date</label>
+            <input type="date" id="incDate" />
+          </div>
+          <div class="field">
+            <label for="incTime">Time</label>
+            <input type="text" id="incTime" placeholder="HH:MM AM/PM" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn cancel" id="modalCancel">Cancel</button>
+          <button type="submit" class="btn save" id="modalSave">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script src="incidentlog.js"></script>
+</body>
+</html>
